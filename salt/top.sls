@@ -1,12 +1,10 @@
 base:
   '*':
     - modules.disable-usb
+    - modules.motd
 
   '*web*':
       - httpd
       - python
-
-  'os:Ubuntu':
-    - match: grain
-    - modules.ubuntu
+      - firewalld
 
