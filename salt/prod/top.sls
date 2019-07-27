@@ -1,3 +1,3 @@
-Prod:
+prod:
   '*':
     - modules.motd
