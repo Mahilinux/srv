@@ -1,4 +1,4 @@
-#This file is effectively managed by Salt, manual changes would be reverted
+# This file is effectively managed by Salt, manual changes would be reverted
 # /etc/logrotate.d/syslog
 
 /var/log/cron
