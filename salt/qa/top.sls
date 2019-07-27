@@ -1,3 +1,3 @@
-qa:
+QA:
   '*':
     - modules.selinux 
