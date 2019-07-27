@@ -1,9 +1,0 @@
-# This file is effectively managed by Salt,manual changes would be reverted"
-
-
-Salt Master: {{grains.master}}                            Manufacturer: {{grains.manufacturer}}
-Operating System: {{grains.oscodename}}                                KernelVersion: {{grains.kernelrelease}}
-OS Release: {{grains.osrelease}}                                                   OS Architecture: {{grains.osarch}}
-Environment: {{grains.example.env}}                                                      Region: {{grains.example.region}}
-{test: {{grains.osrelease}}           arch: {{grains.osarch}}}
-{Environment: {{grains.example.env}}   Region: {{grains.example.region}}}
