@@ -1,4 +1,4 @@
-dev:
+Test:
   '*':
     - modules.disable-usb
 
