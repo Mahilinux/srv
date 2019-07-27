@@ -7,10 +7,6 @@ verify_env: True
 cachedir: /var/cache/salt
 master_port: 4506
 retry_dns: 30
-minutes: 60
 saltenv: {{grains.example.env}}
 Region: {{grains.example.region}}
 
-schedule:
-highstate:
-function: state.highstate

@@ -2,6 +2,10 @@ install_vim:
   pkg.installed:
     - name: vim-enhanced
 
+install_tree:
+  pkg.installed:
+    - name: tree
+
 install_coreutils:
   pkg.installed:
     - name: coreutils

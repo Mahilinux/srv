@@ -1,0 +1,4 @@
+# Thie file is effectively managed by Salt manual changes would be reverted
+# /etc/sudoers.d/saltsudo
+
+mahesh ALL=(ALL) NOPASSWD:ALL
