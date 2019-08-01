@@ -1,0 +1,19 @@
+# This file is effectively managed by Salt, manual changes would be reverted
+# /etc/logrotate.d/syslog
+
+/var/log/cron
+/var/log/maillog
+/var/log/messages
+/var/log/secure
+/var/log/spooler
+{
+   daily
+   missingok
+   rotate 7
+   compress
+   notifempty
+   sharedscripts
+   postrotate
+        /bin/kill -HUP `cat /var/run/syslogd.pid 2> /dev/null` 2> /dev/null || true
+   endscript
+}

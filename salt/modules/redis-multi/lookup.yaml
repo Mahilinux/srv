@@ -1,0 +1,15 @@
+
+Debian:
+  pkgs:
+    - redis-server
+    - python-redis
+  service: redis-server
+  conf: /etc/redis/redis.conf
+
+RedHat:
+  pkgs:
+    - redis
+    - python2-redis
+  service: redis
+  conf: /etc/redis.conf
+

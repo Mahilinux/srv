@@ -1,0 +1,12 @@
+# This file is effectively managed by Saltsatck, manual changes would be reverted
+# Minion Configuration
+# /etc/salt/minion
+
+master: salt
+verify_env: True
+cachedir: /var/cache/salt
+master_port: 4506
+retry_dns: 30
+saltenv: {{grains.example.env}}
+Region: {{grains.example.region}}
+
