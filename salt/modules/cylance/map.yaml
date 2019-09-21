@@ -1,0 +1,7 @@
+6:
+  name: cylance
+  source: salt://cylance/files/CylancePROTECT.el6.rpm
+
+7:
+  name: cylance
+  source: salt://cylance/files/CylancePROTECT.el7.rpm

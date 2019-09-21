@@ -1,0 +1,18 @@
+Debian:
+  name: ntp
+  service: ntp
+  ntpfile: /etc/ntp.conf
+  source_ntpfile: salt://ntp/deb-ntp.conf
+
+RedHat:
+  name: ntp
+  service: ntpd
+  ntpfile: /etc/ntp.conf
+  source_ntpfile: salt://ntp/rhel-ntp.conf
+
+
+Suse:
+  name: ntp
+  service: ntpd
+  ntpfile: /etc/ntp.conf
+  source_ntpfile: salt://ntp/deb-ntp.conf

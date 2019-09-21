@@ -1,0 +1,12 @@
+# This File is effective managed by Saltstack
+
+[copr:copr.fedorainfracloud.org:group_spacewalkproject:spacewalk-2.9]
+name=Copr repo for spacewalk-2.9 owned by @spacewalkproject
+baseurl=https://copr-be.cloud.fedoraproject.org/results/@spacewalkproject/spacewalk-2.9/epel-7-$basearch/
+type=rpm-md
+skip_if_unavailable=True
+gpgcheck=1
+gpgkey=https://copr-be.cloud.fedoraproject.org/results/@spacewalkproject/spacewalk-2.9/pubkey.gpg
+repo_gpgcheck=0
+enabled=1
+enabled_metadata=1
