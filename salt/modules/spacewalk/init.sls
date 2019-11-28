@@ -1,3 +1,5 @@
+{% if grains['os'] == 'CentOS' %}
+
 {% set file_name = salt['file.file_exists']('/etc/sysconfig/rhn/systemid') %}
 {% if file_name == False %}
 
@@ -28,6 +30,7 @@ Dependency:
 Registration:
   cmd.run:
     - skip_suggestions: True
+{% if grains['os'] == 'CentOS' %}
     {% if grains['osmajorrelease'] == 6 %}
     - name: rhnreg_ks --serverUrl=https://10.15.10.236/XMLRPC --sslCACert=/usr/share/rhn/RHN-ORG-TRUSTED-SSL-CERT --profilename=`hostname -f` --activationkey=1-Centos-6-AK
     {% elif grains['osmajorrelease'] == 7 %}
@@ -38,4 +41,5 @@ Registration:
 Already Installed:
   test.succeed_without_changes:
     - name: {{ grains['id'] }} is already registerd with Spacewalk
+{% endif %}
 {% endif %}
