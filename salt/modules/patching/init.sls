@@ -3,12 +3,13 @@
 {# Begin RedHat/CentOS #}
 {% if grains['os_family'] == 'RedHat' %}
 
-security_updates:
-  cmd.run:
-    - name: 'yum update -y'
 yum_cleanup:
   cmd.run:
     - name: 'yum-complete-transaction'
+
+security_updates:
+  cmd.run:
+    - name: 'yum update -y'
 
 {% endif %}
 {# End RedHat/CentOS #}
@@ -18,7 +19,7 @@ yum_cleanup:
 
 install_upgrades:
   cmd.run:
-    - name: 'apt-get update; sudo unattended-upgrades'
+    - name: 'apt-get update; sudo apt-get dist-upgrade -y'
 
 {% endif %}
 {# End Ubuntu #}
@@ -26,13 +27,9 @@ install_upgrades:
 {# Begin SUSE #}
 {% if grains['os'] == 'Suse' %}
 
-#all_updates:
-#  cmd.run:
-#    - name: 'zypper update --exclude=kernel* -y'
-
-#security_updates:
-#  cmd.run:
-#    - name: 'zypper update --security --exclude=kernel* -y'
+all_updates:
+  cmd.run:
+    - name: 'zypper update -y'
 
 {% endif %}
 {# End SUSE #}
