@@ -1,0 +1,20 @@
+Debian:
+  pkg: snmp
+  pkgutils: snmpd
+  service: snmpd
+  config: /etc/snmp/snmpd.conf
+  source: salt://snmp/deb-snmpd.conf
+
+RedHat:
+  pkg: net-snmp
+  pkgutils: net-snmp-utils
+  service: snmpd
+  config: /etc/snmp/snmpd.conf
+  source: salt://snmp/rhel-snmpd.conf
+
+Suse:
+  pkg: net-snmp
+  pkgutils: net-snmp
+  service: snmpd
+  config: /etc/snmp/snmpd.conf
+  source: salt://snmp/deb-snmpd.conf
