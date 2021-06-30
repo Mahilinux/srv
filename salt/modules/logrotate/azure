@@ -1,0 +1,15 @@
+# This file is effectively managed by Salt, manual changes would be reverted
+
+/var/log/azure/Microsoft.EnterpriseCloud.Monitoring.OmsAgentForLinux/*/*.log{
+
+    daily
+    rotate 10
+    missingok
+    notifempty
+    compress
+    maxage 7
+    maxsize 2G
+    postrotate
+    /usr/bin/find /var/lib/waagent/*.zip -xdev -type f -mtime +10  -print -delete
+    endscript
+}
