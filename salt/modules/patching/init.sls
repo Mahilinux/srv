@@ -1,17 +1,45 @@
 # State to manage patching of minions
+# Updated by Mahesh
 
 {# Begin RedHat/CentOS #}
-{% if grains['os_family'] == 'RedHat' %}
+
+{% if grains['osmajorrelease'] == 6 or grains['osmajorrelease'] == 7 %}
+
+yum-utils:
+  pkg.installed
 
 yum_cleanup:
   cmd.run:
-    - name: 'yum-complete-transaction'
+    - name: yum-complete-transaction --cleanup-only
+    - require:
+      - pkg: yum-utils
 
-security_updates:
+{% endif %}
+
+{% if grains['os'] == 'RedHat' %}
+
+include:
+  - modules.rhelsub
+
+rhel_patching:
   cmd.run:
     - name: 'yum update -y'
 
 {% endif %}
+
+
+{% if grains['os'] == 'CentOS' %}
+
+include:
+  - modules.centos-repos
+
+centos_patching:
+  cmd.run:
+    - name: 'yum update -y'
+
+{% endif %}
+
+
 {# End RedHat/CentOS #}
 
 {# Begin Ubuntu #}
@@ -19,7 +47,7 @@ security_updates:
 
 install_upgrades:
   cmd.run:
-    - name: 'apt-get update; sudo apt-get dist-upgrade -y'
+    - name: 'apt-get update; sudo unattended-upgrades'
 
 {% endif %}
 {# End Ubuntu #}
@@ -36,5 +64,5 @@ all_updates:
 
 {# Reboot system #}
 reboot_system:
-  module.run:
-    - name: system.reboot
+  cmd.run:
+    - name: reboot
